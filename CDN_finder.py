@@ -1,11 +1,11 @@
 
 """
 This simple project is finding a given website CDN 
-We are now covering 16 diffrent CDN I would add new CDNs as I find them you can aslo mail me or 
-creat issue in the github
+We are now covering 26 diffrent CDN I would add new CDNs as I find them you can also email me or 
+creat issue in the github if you are aware of any other CDN.
 for the most updated version see my github page
 https://github.com/Behnam-Shobiri/CDN-Finder
-to undrestand how we determind the CDN look at the flowchart 
+
 All rights all reserved for the creator and Madiba Security Lab 
 happy hacking!
 """
@@ -78,7 +78,6 @@ def Find_with_DNS_Reverse(DNS_Reverse_response):
     return status
 
 
-
 def Find_with_CNAME(CNAME):
     status = -1
     print ("Cname is :", CNAME)
@@ -137,14 +136,13 @@ def Find_With_Headers(response):
     return status
 
 
+def Find_CDN_for_domain(domain):
 
-def Find_CDN_with_flowchart(domain):
-    
-    
     (IP_list, IP_Status) = Normal_DNS(domain)
     if IP_Status != -1:
         for ip in IP_list:
             print("Domain:",domain,"has IP:",ip)
+
             #DNS REVERSE CHECK
             print("Checking DNS reverse")
             (reverse,Reverse_status)=DNS_REV(ip)
@@ -157,8 +155,8 @@ def Find_CDN_with_flowchart(domain):
                     print ("the DNS reverse Respond",reverse)
                 
 
-            print("Checking CNAME")
             #CNAME CHECK
+            print("Checking CNAME")
             (CNAME_list, CNAME_Status) = Find_DNS_CNAME(domain)
             CNAME_number_status = -1
             CNAME =""
@@ -170,8 +168,8 @@ def Find_CDN_with_flowchart(domain):
                         print ("Cname is:", str(CNAME))
             
 
-            print("Checking Headers")
             #HEADER CHECK
+            print("Checking Headers")
             (Header_response, Header_Status)= Get_Headers(domain)
             print(Header_response)
             if Header_Status != -1:
@@ -179,15 +177,18 @@ def Find_CDN_with_flowchart(domain):
                 if Find_with_Header_Status != 1:
                     print("Cannot distinguish with Headers ")
                 
-            return -1
 
 
+
+#### load the values for features
 CNAME_values = Read_keys_values("CNAME.txt")
 reverse_DNS_values = Read_keys_values("Reverse_DNS.txt")
 HTTP_header_server = Read_keys_values("Server_header.txt")
 HTTP_header =  Read_keys_values("HTTP_headers.txt")
+
+
 domain = input("enter the domain name: \n")
-Find_CDN_with_flowchart(domain)
+Find_CDN_for_domain(domain)
 
 
 
