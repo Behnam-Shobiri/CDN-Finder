@@ -1,0 +1,45 @@
+---
+subdomain: very
+layout: page
+favicon: red
+background: red
+---
+
+<style>
+#content h1, fieldset {
+  font-family: "Comic Sans MS", "Comic Sans", "Marker Felt", "Source Code Pro", Monaco, Consolas, "Courier New", monospace, Impact;
+}
+#content img {
+  width: 60vw;
+  max-width: 512px;
+  margin-top: 2.5vh;
+  border: 0;
+}
+fieldset {
+  border: 0.25em dashed white;
+  border-radius: 1em;
+}
+legend {
+  font-size: 3vw;
+  color: white;
+}
+</style>
+
+<div id="content">
+  <h1 style="font-size: 7vw;">
+    {{ page.subdomain }}.{{ site.domain }}
+  </h1>
+  <div>
+    <a download="http-download.jpg" href="http://{{ page.subdomain }}.{{ site.domain }}/image.jpg"><img src="http://{{ page.subdomain }}.{{ site.domain }}/image.jpg" alt="very badssl"></a>
+    <br><br>
+    <form action="http://{{ site.http-domain }}/resources/form-submitted.html" method="post">
+      <fieldset>
+        <legend>&nbsp;Mixed&nbsp;Form&nbsp;</legend>
+        <input type="text" id="value" placeholder="This form submits to HTTP."/>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<script src="http://{{ site.http-domain }}/test/imported.js"></script>

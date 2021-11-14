@@ -1,0 +1,33 @@
+---
+subdomain: very
+layout: page
+favicon: red
+background: red
+---
+
+<style>
+#content h1 {
+  font-family: "Comic Sans MS", "Comic Sans", "Marker Felt", "Source Code Pro", Monaco, Consolas, "Courier New", monospace, Impact;
+}
+#content img {
+  width: 60vw;
+  max-width: 512px;
+  margin-top: 2.5vh;
+}
+</style>
+
+<div id="content">
+  <h1 style="font-size: 4vw;">
+    {{ page.subdomain }}.{{ site.domain }}<br>/delayed
+  </h1>
+  <img src="http://{{ page.subdomain }}.{{ site.domain }}/image.jpg" alt="very badssl">
+</div>
+
+
+<script>
+  setTimeout(function() {
+    var script = document.createElement('script');
+    script.src = "http://{{ page.subdomain }}.{{ site.domain }}/test/imported.js";
+    document.head.appendChild(script);
+  }, 1000);
+</script>
