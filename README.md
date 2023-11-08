@@ -1,6 +1,8 @@
 # Welcome to the CDN-Finder Project
 When a website is using CDN , there is  connection between the CDN-edge server and end-user (front-end) and connection between the CDN and origin (back-end connection). This project is aim to investigate both front-end connection and back-end connection.
 
+This project was part of the following research paper that investigated security issues in CDNs' connections. You can download the paper for free from ['ACM website'](https://dl.acm.org/doi/10.1145/3499428).
+
 ## Overview
 Each part has its own ReadMe file. For more information check it out. Here is an overview of the project. 
 
